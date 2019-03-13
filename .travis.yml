@@ -8,42 +8,34 @@ matrix:
     # First test with TD_ENGINE=rdkit
     - os: osx
       language: generic
-      env: PYTHON_VER=3.6
-      env: TD_ENGINE=rdkit
+      env: PYTHON_VER=3.6 TD_ENGINE=rdkit
     - os: osx
       language: generic
-      env: PYTHON_VER=3.7
-      env: TD_ENGINE=rdkit
+      env: PYTHON_VER=3.7 TD_ENGINE=rdkit
 
 
     - os: linux
       language: generic  # No need to set Python version since its conda
-      env: PYTHON_VER=3.6
-      env: TD_ENGINE=rdkit
+      env: PYTHON_VER=3.6 TD_ENGINE=rdkit
     - os: linux
       language: generic
-      env: PYTHON_VER=3.7
-      env: TD_ENGINE=rdkit
+      env: PYTHON_VER=3.7 TD_ENGINE=rdkit
       
     # Now with TD_ENGINE=psi4 backend
     - os: osx
       language: generic
-      env: PYTHON_VER=3.6
-      env: TD_ENGINE=psi4
+      env: PYTHON_VER=3.6 TD_ENGINE=psi4
     - os: osx
       language: generic
-      env: PYTHON_VER=3.7
-      env: TD_ENGINE=psi4
+      env: PYTHON_VER=3.7 TD_ENGINE=psi4
 
 
     - os: linux
       language: generic  # No need to set Python version since its conda
-      env: PYTHON_VER=3.6
-      env: TD_ENGINE=psi4
+      env: PYTHON_VER=3.6 TD_ENGINE=psi4
     - os: linux
       language: generic
-      env: PYTHON_VER=3.7
-      env: TD_ENGINE=psi4
+      env: PYTHON_VER=3.7 TD_ENGINE=psi4
 
 before_install:
   # Additional info about the build
