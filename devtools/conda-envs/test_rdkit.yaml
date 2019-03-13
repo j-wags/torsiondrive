@@ -1,4 +1,4 @@
-name: test
+name: test_rdkit
 channels:
   - conda-forge
   - rdkit
@@ -11,6 +11,9 @@ dependencies:
     # geomeTRIC base depends
   - numpy
   - networkx
+
+    # for building cctools.workqueue
+  - swig
 
     # Testing
   - pytest
