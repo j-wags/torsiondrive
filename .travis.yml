@@ -1,13 +1,24 @@
 language: python
 
 # Run jobs on container-based infrastructure, can be overridden per job
-dist: trusty
 
 matrix:
   include:
-    - os: linux
-      python: 3.6
+    # Extra includes for OSX since python language is not available by default on OSX
+    - os: osx
+      language: generic
       env: PYTHON_VER=3.6
+    - os: osx
+      language: generic
+      env: PYTHON_VER=3.7
+
+
+    - os: linux
+      language: generic  # No need to set Python version since its conda
+      env: PYTHON_VER=3.6
+    - os: linux
+      language: generic
+      env: PYTHON_VER=3.7
 
 before_install:
   # Additional info about the build
@@ -22,9 +33,12 @@ before_install:
 install:
 
     # Create test environment for package
-  - conda env create -n test python=$PYTHON_VER -f devtools/conda-envs/psi.yaml
-  - source activate test
-
+  - python devtools/scripts/create_conda_env.py -n=test -p=$PYTHON_VER devtools/conda-envs/test_env.yaml
+    # Activate the test environment
+  - conda activate test
+    # Build and install package
+  - python setup.py develop --no-deps
+  
     # Build and install package
   - bash devtools/travis-ci/install-cctools-62.sh
   - python setup.py develop --no-deps
@@ -33,7 +47,7 @@ install:
   - python -c "import geometric; print(geometric.__version__)"
 
 script:
-  - travis_wait 100 pytest -v --cov=torsiondrive torsiondrive/tests/
+  - pytest -v --cov=torsiondrive torsiondrive/tests/
 
 notifications:
     email: false
