@@ -13,14 +13,15 @@ matrix:
       language: generic
       env: PYTHON_VER=3.7 TD_ENGINE=rdkit
 
-
     - os: linux
       language: generic  # No need to set Python version since its conda
       env: PYTHON_VER=3.6 TD_ENGINE=rdkit
     - os: linux
       language: generic
       env: PYTHON_VER=3.7 TD_ENGINE=rdkit
-      
+
+
+
     # Now with TD_ENGINE=psi4 backend
     - os: osx
       language: generic
@@ -28,7 +29,6 @@ matrix:
     - os: osx
       language: generic
       env: PYTHON_VER=3.7 TD_ENGINE=psi4
-
 
     - os: linux
       language: generic  # No need to set Python version since its conda
@@ -50,7 +50,7 @@ before_install:
 install:
 
     # Create test environment for package
-  - python devtools/scripts/create_conda_env.py -n=test -p=$PYTHON_VER devtools/conda-envs/test_${TD_ENGINE}.yaml
+  - python devtools/scripts/create_conda_env.py -n=test_${TD_ENGINE} -p=$PYTHON_VER devtools/conda-envs/test_${TD_ENGINE}.yaml
     # Activate the test environment
   - conda activate test_${TD_ENGINE}
     # Build and install package
