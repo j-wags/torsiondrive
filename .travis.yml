@@ -50,11 +50,9 @@ before_install:
 install:
 
     # Create test environment for package
-  - python devtools/scripts/create_conda_env.py -n=test_${TD_ENGINE} -p=$PYTHON_VER devtools/conda-envs/test_${TD_ENGINE}.yaml
+  - python devtools/scripts/create_conda_env.py -n=test -p=$PYTHON_VER devtools/conda-envs/test_${TD_ENGINE}.yaml
     # Activate the test environment
-  - conda activate test_${TD_ENGINE}
-    # Build and install package
-  - python setup.py develop --no-deps
+  - conda activate test
   
     # Build and install package
   - bash devtools/travis-ci/install-cctools-62.sh

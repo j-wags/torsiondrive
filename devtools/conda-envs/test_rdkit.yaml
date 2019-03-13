@@ -1,4 +1,4 @@
-name: test_rdkit
+name: test
 channels:
   - conda-forge
   - rdkit
