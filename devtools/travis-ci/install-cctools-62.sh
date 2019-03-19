@@ -1,5 +1,7 @@
 #!/bin/bash
 
+conda activate test
+
 # Download latest version from website.
 echo "Downloading source."
 cctools="cctools-6.2.10"
