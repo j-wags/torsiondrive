@@ -1,6 +1,6 @@
 #!/bin/bash
 
-conda activate test
+
 
 # Download latest version from website.
 echo "Downloading source."
