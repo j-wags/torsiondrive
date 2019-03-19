@@ -11,9 +11,9 @@ tar xzf $cctools_src.tar.gz
 cd $cctools_src
 
 # Increase all sorts of timeouts.
-sed -i s/"timeout = 5;"/"timeout = 7200;"/g work_queue/src/*.c
-sed -i s/"timeout = 10;"/"timeout = 7200;"/g work_queue/src/*.c
-sed -i s/"timeout = 15;"/"timeout = 7200;"/g work_queue/src/*.c
+sed -i 's/"timeout = 5;"/"timeout = 7200;"/g' work_queue/src/*.c
+sed -i 's/"timeout = 10;"/"timeout = 7200;"/g' work_queue/src/*.c
+sed -i 's/"timeout = 15;"/"timeout = 7200;"/g' work_queue/src/*.c
 sed -i s/"foreman_transfer_timeout = 3600"/"foreman_transfer_timeout = 86400"/g work_queue/src/work_queue.c
 sed -i s/"long_timeout = 3600"/"long_timeout = 86400"/g work_queue/src/work_queue.c
 
